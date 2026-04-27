@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 
+const COSTUME_PHOTO = "https://cdn.poehali.dev/projects/f8fa6a70-eadb-4f1e-b152-b8a5ace3b046/files/4dbcba57-193d-41a4-922c-4d40f6876295.jpg"
+
 const costumeSlides = [
   {
     title: "Северные вепсы",
@@ -51,31 +53,19 @@ export function Testimonial() {
           >
             {/* Имитация слайдера с цветными блоками */}
             <div className="relative aspect-[3/4] bg-wood/40 border border-linen/10 overflow-hidden">
+              {/* Реальное фото костюма */}
+              <img
+                src={COSTUME_PHOTO}
+                alt="Вепсский народный костюм"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-wood/80 via-transparent to-transparent"/>
+
               {costumeSlides.map((slide, i) => (
                 <div
                   key={slide.title}
-                  className={`absolute inset-0 flex flex-col justify-end p-8 transition-all duration-700 ${i === activeSlide ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
+                  className={`absolute bottom-0 left-0 right-0 p-8 transition-all duration-700 ${i === activeSlide ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 >
-                  {/* Декоративный фон из вепсских орнаментов */}
-                  <div className="absolute inset-0 opacity-10" style={{
-                    backgroundImage: `repeating-linear-gradient(45deg, hsl(var(--terra)) 0px, hsl(var(--terra)) 2px, transparent 2px, transparent 20px)`,
-                  }}/>
-                  <div className="absolute inset-0 opacity-5" style={{
-                    backgroundImage: `repeating-linear-gradient(-45deg, hsl(var(--linen)) 0px, hsl(var(--linen)) 2px, transparent 2px, transparent 20px)`,
-                  }}/>
-
-                  {/* Силуэт фигуры в костюме */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg width="140" height="260" viewBox="0 0 140 260" fill="none" opacity="0.3">
-                      <ellipse cx="70" cy="40" rx="22" ry="26" fill="hsl(var(--linen))"/>
-                      <path d="M48 66 C30 80 20 130 25 180 L115 180 C120 130 110 80 92 66 Z" fill={i === 0 ? "hsl(var(--terra) / 0.8)" : "hsl(var(--lake) / 0.6)"}/>
-                      <rect x="42" y="90" width="16" height="60" rx="8" fill="hsl(var(--linen) / 0.5)"/>
-                      <rect x="82" y="90" width="16" height="60" rx="8" fill="hsl(var(--linen) / 0.5)"/>
-                      <rect x="50" y="178" width="16" height="70" rx="4" fill="hsl(var(--linen) / 0.5)"/>
-                      <rect x="74" y="178" width="16" height="70" rx="4" fill="hsl(var(--linen) / 0.5)"/>
-                    </svg>
-                  </div>
-
                   <div className="relative z-10">
                     <p className="font-serif text-2xl text-linen mb-1">{slide.title}</p>
                     <p className="text-xs tracking-widest uppercase text-terra">{slide.subtitle}</p>
