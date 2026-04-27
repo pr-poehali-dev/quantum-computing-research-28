@@ -1,111 +1,82 @@
 import { useEffect, useRef, useState } from "react"
 
-const steps = [
-  {
-    number: "01",
-    title: "Слушаем",
-    description:
-      "Мы начинаем с присутствия. Понимаем не только ваше пространство, но и то, как вы в нём живёте — ваши ритмы, потребности, стремления.",
-  },
-  {
-    number: "02",
-    title: "Видим",
-    description:
-      "Вместе исследуем возможности. Мудборды, образцы материалов и пространственные концепции рождаются из нашего диалога.",
-  },
-  {
-    number: "03",
-    title: "Создаём",
-    description:
-      "С намерением и заботой воплощаем видение в жизнь. Каждая деталь продумана, каждый элемент осмыслен.",
-  },
-  {
-    number: "04",
-    title: "Живём",
-    description:
-      "Пространство готово, но путешествие продолжается. Мы следим, чтобы ваш дом развивался вместе с вами.",
-  },
-]
-
 export function Process() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true) },
       { threshold: 0.1 },
     )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section ref={sectionRef} id="process" className="py-32 lg:py-40 px-6 lg:px-12">
+    <section ref={sectionRef} id="language" className="py-32 lg:py-40 px-6 lg:px-12 bg-linen">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
-          {/* Left Column - Sticky Header */}
-          <div className="lg:col-span-4">
-            <div className="lg:sticky lg:top-32">
-              <p
-                className={`text-xs tracking-[0.3em] uppercase text-terracotta mb-6 transition-all duration-1000 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-              >
-                Наш процесс
-              </p>
-              <h2
-                className={`font-serif text-4xl md:text-5xl font-light text-foreground mb-6 text-balance transition-all duration-1000 delay-200 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-              >
-                Путь
-                <span className="italic"> осознанности</span>
-              </h2>
-              <p
-                className={`text-muted-foreground leading-relaxed transition-all duration-1000 delay-300 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-              >
-                Настоящие пространства не создаются в спешке. Они раскрываются через вдумчивый процесс,
-                уважающий и архитектуру, и людей, которые будут здесь жить.
-              </p>
-            </div>
+
+        {/* Цитата о языке */}
+        <div className={`max-w-3xl mx-auto text-center mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <p className="text-xs tracking-[0.3em] uppercase text-terra mb-6">Язык — душа народа</p>
+
+          {/* Большая цавтата */}
+          <blockquote className="font-serif text-2xl md:text-3xl font-light text-foreground leading-relaxed mb-8 text-balance">
+            «Вепсский язык <em>(vepsän kel')</em> — один из самых архаичных родственников финского и карельского языков,
+            насчитывающий до&nbsp;24 падежей»
+          </blockquote>
+
+          {/* Орнаментальный разделитель */}
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px w-16 bg-terra/30"/>
+            <svg width="16" height="16" viewBox="0 0 16 16" className="text-terra/50" fill="currentColor">
+              <rect x="8" y="0.5" width="5" height="5" transform="rotate(45 8 0.5)"/>
+              <rect x="8" y="9" width="4" height="4" transform="rotate(45 8 9)" opacity="0.5"/>
+            </svg>
+            <div className="h-px w-16 bg-terra/30"/>
           </div>
 
-          {/* Right Column - Steps */}
-          <div className="lg:col-span-8">
-            <div className="space-y-0">
-              {steps.map((step, index) => (
-                <div
-                  key={step.number}
-                  className={`group py-10 lg:py-14 border-t border-border last:border-b transition-all duration-1000 ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                  }`}
-                  style={{ transitionDelay: `${400 + index * 150}ms` }}
-                >
-                  <div className="flex gap-8 lg:gap-12">
-                    <span className="font-serif text-4xl lg:text-5xl text-stone/50 group-hover:text-sage transition-colors duration-500">
-                      {step.number}
-                    </span>
-                    <div>
-                      <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">{step.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed max-w-xl">{step.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-background/70 border border-border">
+              <span className="w-2 h-2 bg-terra/60 rotate-45 inline-block"/>
+              Занесён в «Красную книгу языков народов России»
+            </span>
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-background/70 border border-border">
+              <span className="w-2 h-2 bg-forest/60 rotate-45 inline-block"/>
+              Издаётся газета «Kodima» (Родина)
+            </span>
           </div>
         </div>
+
+        {/* Интерактивные фразы */}
+        <div className={`grid md:grid-cols-2 gap-6 max-w-2xl mx-auto transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <p className="text-xs tracking-[0.25em] uppercase text-muted-foreground text-center md:col-span-2 mb-2">
+            Послушайте вепсскую речь
+          </p>
+          {[
+            { veps: "Tervhen!", rus: "Здравствуй!", emoji: "👋" },
+            { veps: "Elon pu", rus: "Древо жизни", emoji: "🌳" },
+            { veps: "Kurg", rus: "Журавль", emoji: "🦢" },
+            { veps: "Kodima", rus: "Родина", emoji: "🏡" },
+          ].map((phrase) => (
+            <button
+              key={phrase.veps}
+              className="group flex items-center gap-4 px-6 py-5 bg-background border border-border hover:border-terra/60 hover:bg-background transition-all duration-500 text-left"
+              onClick={() => {/* аудио будет добавлено позже */}}
+            >
+              <span className="text-2xl">{phrase.emoji}</span>
+              <div>
+                <p className="font-serif text-xl text-forest group-hover:text-terra transition-colors">{phrase.veps}</p>
+                <p className="text-xs text-muted-foreground">{phrase.rus}</p>
+              </div>
+              <svg className="ml-auto w-5 h-5 text-muted-foreground group-hover:text-terra transition-colors opacity-60" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+          ))}
+        </div>
+
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext");
 
 @tailwind base;
 @tailwind components;
@@ -6,43 +6,52 @@
 
 @layer base {
   :root {
-    /* Japandi color palette - warm naturals with muted accents */
-    --background: 40 20% 96%;
-    --foreground: 30 15% 15%;
+    /* Vepsian color palette — forest, lake, linen, terra */
+    --background: 40 25% 96%;
+    --foreground: 25 20% 14%;
 
-    --card: 40 15% 98%;
-    --card-foreground: 30 15% 15%;
+    --card: 40 20% 98%;
+    --card-foreground: 25 20% 14%;
 
-    --popover: 40 15% 98%;
-    --popover-foreground: 30 15% 15%;
+    --popover: 40 20% 98%;
+    --popover-foreground: 25 20% 14%;
 
-    --primary: 150 30% 25%;
-    --primary-foreground: 40 15% 98%;
+    /* Лесной зелёный #2E4A28 */
+    --primary: 112 24% 23%;
+    --primary-foreground: 40 25% 96%;
 
-    --secondary: 40 15% 92%;
-    --secondary-foreground: 30 15% 15%;
+    --secondary: 40 20% 91%;
+    --secondary-foreground: 25 20% 14%;
 
-    --muted: 40 12% 90%;
-    --muted-foreground: 30 8% 45%;
+    --muted: 40 15% 89%;
+    --muted-foreground: 25 10% 44%;
 
-    --accent: 25 50% 55%;
-    --accent-foreground: 40 15% 98%;
+    /* Терракота #B23A2A */
+    --accent: 8 62% 43%;
+    --accent-foreground: 40 25% 96%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 40 15% 88%;
-    --input: 40 15% 88%;
-    --ring: 150 30% 25%;
+    --border: 40 18% 86%;
+    --input: 40 18% 86%;
+    --ring: 112 24% 23%;
 
     --radius: 0.25rem;
 
-    /* Custom Japandi tokens */
-    --sand: 40 20% 92%;
-    --sage: 150 30% 25%;
-    --terracotta: 25 50% 55%;
-    --indigo: 260 30% 35%;
-    --stone: 40 8% 70%;
+    /* Custom Vepsian tokens */
+    --linen: 40 30% 94%; /* льняной #F5F0E6 */
+    --forest: 112 24% 23%; /* лесной зелёный #2E4A28 */
+    --lake: 204 57% 24%; /* озёрный синий #1B4965 */
+    --terra: 8 62% 43%; /* терракота #B23A2A */
+    --wood: 27 30% 21%; /* тёмное дерево #4A3622 */
+    --stone: 40 8% 68%;
+
+    /* Aliases for template compatibility */
+    --sand: 40 30% 94%;
+    --sage: 112 24% 23%;
+    --terracotta: 8 62% 43%;
+    --indigo: 204 57% 24%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -55,39 +64,45 @@
   }
 
   .dark {
-    --background: 30 15% 10%;
-    --foreground: 40 15% 92%;
+    --background: 25 20% 9%;
+    --foreground: 40 20% 91%;
 
-    --card: 30 15% 12%;
-    --card-foreground: 40 15% 92%;
+    --card: 25 18% 11%;
+    --card-foreground: 40 20% 91%;
 
-    --popover: 30 15% 12%;
-    --popover-foreground: 40 15% 92%;
+    --popover: 25 18% 11%;
+    --popover-foreground: 40 20% 91%;
 
-    --primary: 150 25% 45%;
-    --primary-foreground: 30 15% 10%;
+    --primary: 112 20% 42%;
+    --primary-foreground: 25 20% 9%;
 
-    --secondary: 30 12% 18%;
-    --secondary-foreground: 40 15% 92%;
+    --secondary: 25 15% 17%;
+    --secondary-foreground: 40 20% 91%;
 
-    --muted: 30 12% 18%;
-    --muted-foreground: 40 10% 65%;
+    --muted: 25 15% 17%;
+    --muted-foreground: 40 10% 63%;
 
-    --accent: 25 40% 45%;
-    --accent-foreground: 30 15% 10%;
+    --accent: 8 50% 40%;
+    --accent-foreground: 40 20% 91%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 12% 22%;
-    --input: 30 12% 22%;
-    --ring: 150 25% 45%;
+    --border: 25 12% 20%;
+    --input: 25 12% 20%;
+    --ring: 112 20% 42%;
 
-    --sand: 30 12% 22%;
-    --sage: 150 25% 45%;
-    --terracotta: 25 40% 45%;
-    --indigo: 260 25% 40%;
-    --stone: 30 8% 35%;
+    --linen: 25 15% 17%;
+    --forest: 112 20% 42%;
+    --lake: 204 40% 35%;
+    --terra: 8 50% 40%;
+    --wood: 27 25% 30%;
+    --stone: 25 8% 32%;
+
+    --sand: 25 15% 17%;
+    --sage: 112 20% 42%;
+    --terracotta: 8 50% 40%;
+    --indigo: 204 40% 35%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -109,8 +124,47 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  /* Smooth scrolling for Japandi feel */
   html {
     scroll-behavior: smooth;
   }
+}
+
+/* Вепсские орнаментальные элементы */
+.veps-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: hsl(var(--terra));
+  opacity: 0.5;
+}
+
+.veps-divider::before,
+.veps-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Орнаментальная полоса в стиле вепсской вышивки */
+.veps-ornament-strip {
+  background-image: repeating-linear-gradient(
+    90deg,
+    hsl(var(--terra) / 0.15) 0px,
+    hsl(var(--terra) / 0.15) 8px,
+    transparent 8px,
+    transparent 16px,
+    hsl(var(--forest) / 0.1) 16px,
+    hsl(var(--forest) / 0.1) 24px,
+    transparent 24px,
+    transparent 32px
+  );
+  height: 4px;
+}
+
+/* Параллакс-контейнер */
+.parallax-container {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }

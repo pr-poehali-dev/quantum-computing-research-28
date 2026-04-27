@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['DM Sans', 'DM Sans Fallback', 'system-ui', 'sans-serif'],
-				serif: ['Cormorant Garamond', 'Cormorant Garamond Fallback', 'Georgia', 'serif'],
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				serif: ['Cormorant Garamond', 'Georgia', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -66,12 +66,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom Japandi colors
+				// Вепсская палитра
+				linen: 'hsl(var(--linen))',
+				forest: 'hsl(var(--forest))',
+				lake: 'hsl(var(--lake))',
+				terra: 'hsl(var(--terra))',
+				wood: 'hsl(var(--wood))',
+				stone: 'hsl(var(--stone))',
+				// Template aliases
 				sand: 'hsl(var(--sand))',
 				sage: 'hsl(var(--sage))',
 				terracotta: 'hsl(var(--terracotta))',
 				indigo: 'hsl(var(--indigo))',
-				stone: 'hsl(var(--stone))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -80,25 +86,22 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'ornament-scroll': {
+					'0%': { backgroundPosition: '0 0' },
+					'100%': { backgroundPosition: '64px 0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'ornament-scroll': 'ornament-scroll 4s linear infinite'
 			}
 		}
 	},
